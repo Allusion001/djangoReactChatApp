@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "djangoapi",
     "rest_framework",
-    "corsheaders"
+    "corsheaders",
+     'whitenoise.runserver_nostatic',
  
 ]
 
@@ -123,10 +124,16 @@ STATIC_URL = "/static/"
 # STATICFILES_DIRS=[
 #     BASE_DIR/'frontend/build/static'
 # ]
+STATIC_ROOT = BASE_DIR / "staticfiles" 
 
-STATIC_ROOT = BASE_DIR / 'frontend/build'
+STATICFILES_STORAGE = (
+    'whitenoise.storage.CompressedManifestStaticFilesStorage')
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+STATIC_URL = '/static/'  # already declared in the default settings
+
+WHITENOISE_ROOT = 'frontend/build' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
