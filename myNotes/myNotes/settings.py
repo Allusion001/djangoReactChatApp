@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-_imogr-ksndg5l8gglcr$eor2j=$i=+wpz@9%_kt)n1^bljb_d"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     
 ]
 
@@ -119,9 +120,12 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS=[
-    BASE_DIR/'frontend/build/static'
-]
+# STATICFILES_DIRS=[
+#     BASE_DIR/'frontend/build/static'
+# ]
+
+STATIC_ROOT = BASE_DIR / 'frontend/build'
+
 
 
 # Default primary key field type
