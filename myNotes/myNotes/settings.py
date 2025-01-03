@@ -132,7 +132,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # STATIC_URL = '/static/'  # already declared in the default settings
 
-WHITENOISE_ROOT = './build' 
+WHITENOISE_ROOT = './build/static' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
