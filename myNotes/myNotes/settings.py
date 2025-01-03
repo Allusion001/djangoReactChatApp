@@ -90,6 +90,10 @@ DATABASES = {
     }
 }
 
+STORAGES = {
+"staticfiles": {
+"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+},}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -125,12 +129,12 @@ STATIC_URL = "/staticfiles/"
 #     BASE_DIR/'frontend/build/static'
 # ]
 
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 STATICFILES_STORAGE = (
     'whitenoise.storage.CompressedManifestStaticFilesStorage')
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-# STATIC_URL = '/static/'  # already declared in the default settings
 
 WHITENOISE_ROOT = './build/static' 
 
