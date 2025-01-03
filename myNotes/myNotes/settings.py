@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-_imogr-ksndg5l8gglcr$eor2j=$i=+wpz@9%_kt)n1^bljb_d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*","https://djangoreactchatapp.onrender.com/"]
 
 
 # Application definition
