@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +25,7 @@ SECRET_KEY = "django-insecure-_imogr-ksndg5l8gglcr$eor2j=$i=+wpz@9%_kt)n1^bljb_d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*","https://djangoreactchatapp.onrender.com/"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -93,10 +90,6 @@ DATABASES = {
     }
 }
 
-STORAGES = {
-"staticfiles": {
-"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-},}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -126,20 +119,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "/staticfiles/"
+STATIC_URL = "/static/"
 
-# STATICFILES_DIRS=[
-#     BASE_DIR/'frontend/build/static'
-# ]
-
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS=[
+    BASE_DIR/'frontend/build/static'
+]
+STATIC_ROOT = BASE_DIR / "staticfiles" 
 
 STATICFILES_STORAGE = (
     'whitenoise.storage.CompressedManifestStaticFilesStorage')
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-WHITENOISE_ROOT = './build/static' 
+STATIC_URL = '/static/'  # already declared in the default settings
+
+WHITENOISE_ROOT = 'frontend/build' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
